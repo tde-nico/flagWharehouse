@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Edit
-SERVER="10.80.9.4"
-USERNAME="player3"
+SERVER="10.81.9.106"
+USERNAME="ice_cream"
 TOKEN="custom_token"
 
 PORT=5555

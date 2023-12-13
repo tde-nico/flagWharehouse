@@ -15,7 +15,8 @@ def get_config():
         'format': current_app.config['FLAG_FORMAT'],
         'round': current_app.config['ROUND_DURATION'],
         'teams': current_app.config['TEAMS'],
-        'flagid_url': current_app.config['FLAGID_URL']
+        'nop_team': current_app.config['NOP_TEAM'],
+        'flagid_url': current_app.config['FLAGID_URL'],
     }
     return jsonify(config_dict)
 

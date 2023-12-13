@@ -2,16 +2,19 @@ class Config(object):
 
 	# CHANGE THIS
 	TEAM = 9
+	NUMBER_OF_TEAMS = 43
 	TEAM_TOKEN = '' # team token for flag submission
 
 	WEB_PASSWORD = 'password'
 	API_TOKEN = 'custom_token'
 	SECRET_KEY = 'not_secret_key'
-
+	
 	# Teams
-	YOUR_TEAM = f'10.60.{TEAM}.1'
-	TEAMS = [f'10.60.{i}.1' for i in range(1, 87)] # number of teams
-	TEAMS.remove(YOUR_TEAM)
+	TEAM_FORMAT = '10.60.{}.1'
+	TEAM_IP = TEAM_FORMAT.format(TEAM) # possibly ugly, but the format is needed inside JS
+	TEAMS = [f'10.60.{i}.1' for i in range(1, NUMBER_OF_TEAMS + 1)] # list of all teams
+	TEAMS.remove(TEAM_IP)
+	NOP_TEAM = TEAM_FORMAT.format(0) # this will be used to ask for flag ids' service list by CCIT exploits
 
 	ROUND_DURATION = 120
 	FLAG_ALIVE = 5 * ROUND_DURATION
@@ -21,8 +24,8 @@ class Config(object):
 
 	SUB_PROTOCOL = 'ccit' # submitter protocol. Valid values are 'dummy', 'ccit', 'faust'
 	SUB_LIMIT = 1 # number of requests per interval
-	SUB_INTERVAL = 5 # interval duration
-	SUB_PAYLOAD_SIZE = 100 # max flag per request
+	SUB_INTERVAL = 20 # interval duration
+	SUB_PAYLOAD_SIZE = 500 # max flag per request
 	SUB_URL = 'http://10.10.0.1:8080/flags'
 
 	# Don't worry about this
@@ -31,7 +34,6 @@ class Config(object):
 	DB_SUCC = 'SUCCESS'
 	DB_ERR = 'ERROR'
 	DB_EXP = 'EXPIRED'
-
 
 	DATABASE = 'instance/flagWarehouse.sqlite'
 	#################
